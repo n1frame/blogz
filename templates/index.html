@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Blogz</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/stylesheet.css')}}">
+    </head>
+    <body>
+        <nav>
+            <ul id="user-account">
+                <li><a href="/login">login</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+            <ul>
+                <li><a href="/blog">home</a></li>
+                <li><a href="/blog">all posts</a></li>
+                <li><a href="/newpost">new post</a></li>
+            </ul>
+        </nav>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+        
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
