@@ -117,7 +117,7 @@ def index():
 
     return render_template('blog.html', title="Build A Blog", blogs=blogs)
 
-@app.route('/singleuser', methods = ['GET'])
+@app.route('/', methods = ['GET'])
 def home():
     users = User.query.all()
     return render_template('singleuser.html', users=users)
