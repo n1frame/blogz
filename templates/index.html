@@ -17,15 +17,24 @@
                 <li><a href="/newpost">new post</a></li>
             </ul>
         </nav>
-<style>
-    .error {
-        color: red;
-    }
-</style>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% endwith %}
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
         
 
     {% block content %}
     {% endblock %}
 
-</body>
+    </body>
 </html>
