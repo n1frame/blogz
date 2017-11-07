@@ -48,9 +48,6 @@ def login():
             flash("Logged in")
             return redirect('/newpost')
 
-        #if user and user.password != password 
-            #flash("This password is incorrect.")
-            #return redirect('/login.html')
         else:
              #raise Exception
              flash('User password incorrect, or user does not exist', 'error')
@@ -61,7 +58,6 @@ def login():
 
 @app.route('/signup',methods=['POST', 'GET'])
 def signup():    
-
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -103,8 +99,6 @@ def logout():
 
 @app.route('/blog', methods=['POST', 'GET'])
 def index():
-    
-    #owner = User.query.filter_by(username=session['username']).first()
 
     if request.args.get('userid'):
         user_id = request.args.get('userid')
@@ -118,18 +112,12 @@ def index():
 
         return render_template('blog.html', blogs=blog)
 
-    #else:
-    
-    #if request.args.get('owner')
-        #owner_id = request.args.get('owner')
-        #blog = Blog.query.get(owner_id)
-
     
     blogs = Blog.query.all()
 
     return render_template('blog.html', title="Build A Blog", blogs=blogs)
 
-@app.route('/singleUser.html', methods = ['GET'])
+@app.route('/singleuser', methods = ['GET'])
 def home():
     users = User.query.all()
     return render_template('singleuser.html', users=users)
